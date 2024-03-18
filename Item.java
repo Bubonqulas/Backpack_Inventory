@@ -8,4 +8,8 @@ public class Item {
     public String getItemName() {
         return items;
     }
+
+    public String toString() {
+        return items;
+    }
 }

@@ -54,8 +54,9 @@ public class Managment {
         while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.println(
-                    "What would you like to do?\nAdd and item(add)\nRemove an item(remove)\nMove an item(move)\nQuit to previous page(quit)");
-            String input = scanner.nextLine().trim().toLowerCase();
+                    "\nWhat would you like to do?\n-----\n-Add and item(add)\n-Remove an item(remove)\n-Move an item(move)\n-Quit to previous page(quit)");
+            String input = scanner.nextLine();
+            input = input.trim().toLowerCase();
             if (input.equals("quit")) {
                 System.out.println("Exiting to previous page.");
 
@@ -70,21 +71,24 @@ public class Managment {
 
                     break;
                 case "remove":
-                    // ask mr hager how we would do this since remove item is a sting but we need an
-                    // object called Item?
-                    // if we dont keep it as item it messes with the move item method and the add
-                    // item method
-                  //  System.out.println("What item would you like to remove?");
-                  //  String removeItem = scanner.nextLine().trim().toLowerCase();
-                    // currentLocation.removeItem(removeItem);
-                 //   System.out.println(removeItem + " was removed from " + currentLocation);
+                    System.out.println("What item would you like to remove?");
+                    int removeItem = scanner.nextInt() - 1;
+                    scanner.nextLine();
+                    System.out.println(
+                            currentLocation.getStorage().get(removeItem) + " was removed from "
+                                    + currentLocation.getName() + "\n");
+
+                    currentLocation.getStorage().remove(removeItem);
+
+                    Location.displayInventory(currentLocation);
+
                     break;
                 case "move":
                     // how can we finish this method with the same isse as remove item.
-                  //  System.out.println("What item would you like to move?");
-                 //  String moveItem = scanner.nextLine().trim().toLowerCase();
-                  ///  System.out.println("Where would you like to move this item?");
-                  //  String destination = scanner.nextLine().trim().toLowerCase();
+                    // System.out.println("What item would you like to move?");
+                    // String moveItem = scanner.nextLine().trim().toLowerCase();
+                    /// System.out.println("Where would you like to move this item?");
+                    // String destination = scanner.nextLine().trim().toLowerCase();
 
                     break;
                 case "quit":
@@ -95,7 +99,8 @@ public class Managment {
                     System.out.println("\nInvalid choice. Please type in add, remove, move or quit.\n");
                     continue;
             }
-            scanner.close();
+
         }
     }
+
 }

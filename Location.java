@@ -24,21 +24,22 @@ public class Location {
     }
 
     public static void moveItem(Location currentLocation, Location destination, String itemName) {
-       
+
     }
 
-    public  void removeItem(Item itemName) {
-        storage.remove(itemName);
-   
-        
-    }
+    // public void removeItem(Item itemName) {
+    // storage.remove(itemName);
+
+    // }
 
     public static void displayInventory(Location location) {
-        System.out.println("\nContents in your " + location.getName()+":\n");
-        for (Item item : location.getStorage()) {
-            System.out.println(item.getItemName());
+        System.out.println("\nContents in your " + location.getName() + ":\n");
+
+        for (int i = 0; i < location.storage.size(); i++) {
+            System.out.println((i + 1) + ". " + location.storage.get(i));
+
         }
-        System.out.println();
+
     }
 
     // partially taken from mr artyms code from last year and modified with the help
@@ -73,6 +74,5 @@ public class Location {
     public ArrayList<Item> getStorage() {
         return storage;
     }
-
 
 }
