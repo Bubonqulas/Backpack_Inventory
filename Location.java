@@ -1,3 +1,10 @@
+// Location.java
+/*
+  Title: Location class
+  Author: Hassan Darky
+  Date: March 15th, 2024
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -44,11 +51,12 @@ public class Location {
         // Removes the item from the current location and adds it to the destination
         currentLocation.getStorage().remove(moveItem);
         moveDestination.addItem(itemToMove);
-        displayInventory(currentLocation);
         displayInventory(moveDestination);
+        displayInventory(currentLocation);
+        
     }
 
-    // Method to display the inventory of at the location
+    // Method to display the inventory at the location
     public static void displayInventory(Location location) {
         System.out.println("\nContents in your " + location.getName() + ":\n-----");
 
