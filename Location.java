@@ -12,28 +12,45 @@ public class Location {
     private String locations;
     private ArrayList<Item> storage = new ArrayList<Item>();
 
+    // Constructor that initializes location with its name and filename
     public Location(String locations, String filename) {
         this.locations = locations;
         this.filename = filename;
 
     }
 
+    // Method to add an item
     public void addItem(Item item) {
         storage.add(item);
 
     }
 
-    public static void moveItem(Location currentLocation, Location destination, String itemName) {
+    // Method to move an item from one location to another
+    public static void moveItem(Location currentLocation, Location moveDestination, int moveItem) {
+        // Checks if the current location and destination are the same
+        if (currentLocation == moveDestination) {
+            System.out.println("\nItem is already at this loaction.");
+            return;
+        }
+        // Checks if the index for the item to move is within the currentlocation
+        if (moveItem < 0 || moveItem >= currentLocation.getStorage().size()) {
+            System.out.println("Invalid item index.");
+            return;
+        }
 
+        Item itemToMove = currentLocation.getStorage().get(moveItem);
+        System.out.println("\n" + itemToMove.getItemName() + " has been moved from " +
+                currentLocation.getName() + " to " + moveDestination.getName() + ".\n");
+        // Removes the item from the current location and adds it to the destination
+        currentLocation.getStorage().remove(moveItem);
+        moveDestination.addItem(itemToMove);
+        displayInventory(currentLocation);
+        displayInventory(moveDestination);
     }
 
-    // public void removeItem(Item itemName) {
-    // storage.remove(itemName);
-
-    // }
-
+    // Method to display the inventory of at the location
     public static void displayInventory(Location location) {
-        System.out.println("\nContents in your " + location.getName() + ":\n");
+        System.out.println("\nContents in your " + location.getName() + ":\n-----");
 
         for (int i = 0; i < location.storage.size(); i++) {
             System.out.println((i + 1) + ". " + location.storage.get(i));
@@ -67,10 +84,12 @@ public class Location {
         }
     }
 
+    // Getter for location name
     public String getName() {
         return locations;
     }
 
+    // Getter for storage
     public ArrayList<Item> getStorage() {
         return storage;
     }
