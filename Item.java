@@ -1,3 +1,10 @@
+// Item.java
+/*
+  Title: Item class
+  Author: Hassan Darky
+  Date: March 15th, 2024
+ */
+
 public class Item {
     private String items;
 
