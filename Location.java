@@ -44,8 +44,9 @@ public class Location {
         // Removes the item from the current location and adds it to the destination
         currentLocation.getStorage().remove(moveItem);
         moveDestination.addItem(itemToMove);
-        displayInventory(currentLocation);
         displayInventory(moveDestination);
+        displayInventory(currentLocation);
+        
     }
 
     // Method to display the inventory of at the location
