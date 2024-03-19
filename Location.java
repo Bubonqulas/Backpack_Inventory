@@ -49,7 +49,7 @@ public class Location {
         
     }
 
-    // Method to display the inventory of at the location
+    // Method to display the inventory at the location
     public static void displayInventory(Location location) {
         System.out.println("\nContents in your " + location.getName() + ":\n-----");
 
