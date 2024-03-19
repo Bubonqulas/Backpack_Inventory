@@ -1,3 +1,11 @@
+// Managment.java
+/*
+  Title: Managment class
+  Author: Hassan Darky
+  Date: March 15th, 2024
+ */
+
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
