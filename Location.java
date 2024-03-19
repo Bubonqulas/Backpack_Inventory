@@ -1,3 +1,10 @@
+// Location.java
+/*
+  Title: Location class
+  Author: Hassan Darky
+  Date: March 15th, 2024
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
